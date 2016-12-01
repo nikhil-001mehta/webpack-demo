@@ -1,11 +1,15 @@
+var webpack  = require('webpack');
+var path = require('path');
 module.exports = {
- entry: ["./global.js" , "./index.js"],
+ entry: [
+   "./global.js" , "./index.js", "webpack/hot/dev-server", "webpack-dev-server/client?http://localhost:8080"
+   ],
  output: {
-   filename: "bundle.js",
-   path: './dist',
+   filename: 'bundle.js',
+   path: path.join(__dirname, 'dist'),
    publicPath : '/dist/'
  },
- watch: true,
+ plugins: [new webpack.HotModuleReplacementPlugin()],
  module: {
    loaders: [
      {
