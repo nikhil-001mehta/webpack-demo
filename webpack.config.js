@@ -1,6 +1,7 @@
 var webpack  = require('webpack');
 var path = require('path');
 module.exports = {
+ devtool: 'source-map',
  entry: [
    "./global.js" , "./index.js", "webpack/hot/dev-server", "webpack-dev-server/client?http://localhost:8080"
    ],
