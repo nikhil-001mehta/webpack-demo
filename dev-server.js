@@ -1,8 +1,7 @@
 var webpack  = require('webpack');
 var wpServer = require('webpack-dev-server');
-var config = require('./webpack.config.js');
+var config = require('./webpack.config');
 var server = new wpServer(webpack(config), {
-    inline: true,
     hot: true,
     filename: config.output.filename,
     publicPath: config.output.publicPath,

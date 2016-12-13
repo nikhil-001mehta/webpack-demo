@@ -1,16 +1,20 @@
 var webpack  = require('webpack');
 var path = require('path');
+var debug = process.env.NODE_ENV === 'DEVELOPMENT';
+var plugins  = debug ? [
+ new webpack.HotModuleReplacementPlugin()
+] : []
 module.exports = {
  devtool: 'source-map',
  entry: [
    "./global.js" , "./index.js", "webpack/hot/dev-server", "webpack-dev-server/client?http://localhost:8080"
    ],
  output: {
-   filename: 'bundle.js',
+   filename: "bundle.js",
    path: path.join(__dirname, 'dist'),
    publicPath : '/dist/'
  },
- plugins: [new webpack.HotModuleReplacementPlugin()],
+ plugins: plugins,
  module: {
    loaders: [
      {
@@ -18,12 +22,12 @@ module.exports = {
        exclude: /node_modules/,
        loader: 'babel-loader',
        query: {
-         presets: ['react', 'es2015'] 
+         presets: ['es2015']
        }
      }
    ]
  },
  resolve: {
    extensions: ['', '.js', '.es6']
- },
+ }
 }

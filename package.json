@@ -4,7 +4,9 @@
   "description": "webpack first demo",
   "main": "index.js",
   "scripts": {
-    "build": "webpack"
+    "dev1": "cross-env NODE_ENV=DEVELOPMENT webpack-dev-server --hot --inline",
+    "dev": "cross-env NODE_ENV=DEVELOPMENT node dev-server.js",
+    "prod": "cross-env NODE_ENV=PRODUCTION webpack"
   },
   "author": "nikhilmehta",
   "license": "MIT",
@@ -22,6 +24,7 @@
     "webpack-dev-server": "^1.16.2"
   },
   "dependencies": {
+    "cross-env": "^3.1.3",
     "react": "^15.4.0",
     "react-dom": "^15.4.0"
   }
