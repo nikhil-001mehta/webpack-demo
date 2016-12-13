@@ -2,8 +2,15 @@ var webpack  = require('webpack');
 var path = require('path');
 var debug = process.env.NODE_ENV === 'DEVELOPMENT';
 var plugins  = debug ? [
- new webpack.HotModuleReplacementPlugin()
-] : []
+ new webpack.HotModuleReplacementPlugin(),
+ new webpack.ProvidePlugin({
+  $: "jquery"
+})
+] : [
+  new webpack.ProvidePlugin({
+   $: "jquery"
+ })
+]
 module.exports = {
  devtool: 'source-map',
  entry: [
